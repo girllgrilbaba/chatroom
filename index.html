@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miisa Chatroom</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS for styling -->
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.5.0/dist/socket.io.min.js"></script> <!-- For WebSocket -->
+    <script defer src="app.js"></script> <!-- External JavaScript -->
+</head>
+<body>
+    <!-- Main Container for Chat App -->
+    <div id="chat-app">
+        <!-- Login Modal -->
+        <div id="auth-modal" class="modal">
+            <div class="modal-content">
+                <h2>Login to Miisa</h2>
+                <form id="login-form">
+                    <input type="text" id="username-input" placeholder="Username" required>
+                    <input type="password" id="password-input" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Interface -->
+        <div id="chat-interface" class="hidden">
+            <header>
+                <div id="user-info">
+                    <p id="username">Welcome, User</p>
+                    <button id="logout">Logout</button>
+                </div>
+            </header>
+
+            <div id="chat-container">
+                <!-- Messages Section -->
+                <div id="messages" class="messages"></div>
+
+                <!-- Typing Indicator -->
+                <div id="typing-indicator" class="typing-indicator hidden">
+                    <p><em>Someone is typing...</em></p>
+                </div>
+
+                <!-- Message Input Section -->
+                <div id="input-container">
+                    <textarea id="message-input" placeholder="Type a message..."></textarea>
+                    <button id="send-message">Send</button>
+                    <input type="file" id="media-upload" accept="image/*,video/*">
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Miisa Chatroom - 2025</p>
+        </footer>
+    </div>
+
+    <!-- Modal for Message Confirmation -->
+    <div id="message-confirmation-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Your message is being sent</h2>
+            <p>Please wait while your message and media are being uploaded...</p>
+        </div>
+    </div>
+
+</body>
+</html>
